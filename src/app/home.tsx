@@ -4,12 +4,12 @@ import CarList from '@/components/CarList';
 import Footer from '@/components/Footer';
 
 export default function Home() {
-  return (
-    <div>
-      <Header />
-      <Hero />
-      <CarList />
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Hero />
+            <CarList />
+            <Footer />
+        </div>
+    );
 }
