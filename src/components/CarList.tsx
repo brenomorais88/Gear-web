@@ -25,15 +25,15 @@ export default function CarList() {
     }, []);
 
     if (loading) {
-        return <p className="p-8 text-center">Carregando anúncios...</p>;
+        return <p className="p-8 text-center text-gear-textGray">Carregando anúncios...</p>;
     }
 
     return (
         <section className="p-8">
-            <h2 className="text-2xl font-semibold mb-4">Carros em destaque</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-primary">Carros em destaque</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {anuncios.map((anuncio) => (
-                    <div key={anuncio.idAnuncio} className="border rounded p-4 shadow">
+                    <div key={anuncio.idAnuncio} className="bg-gear-ice border border-gear-gray rounded p-4 shadow">
                         {anuncio.veiculoFotos.length > 0 ? (
                             <Image
                                 src={anuncio.veiculoFotos[0].linkFoto}
@@ -43,13 +43,13 @@ export default function CarList() {
                                 className="object-cover w-full h-48 rounded mb-2"
                             />
                         ) : (
-                            <div className="bg-gray-300 w-full h-48 flex items-center justify-center mb-2">
+                            <div className="bg-gear-darkGray w-full h-48 flex items-center justify-center mb-2 text-gear-ice">
                                 Sem imagem
                             </div>
                         )}
-                        <h3 className="font-medium">{anuncio.descricaoMarca} {anuncio.descricaoModelo}</h3>
-                        <p className="text-gray-600">Ano: {anuncio.anoFabMod}</p>
-                        <p className="text-gray-800 font-semibold">R${anuncio.preco.toLocaleString('pt-BR')}</p>
+                        <h3 className="font-medium text-gear-black">{anuncio.descricaoMarca} {anuncio.descricaoModelo}</h3>
+                        <p className="text-gear-textGray">Ano: {anuncio.anoFabMod}</p>
+                        <p className="text-primary font-semibold">R${anuncio.preco.toLocaleString('pt-BR')}</p>
                     </div>
                 ))}
             </div>
