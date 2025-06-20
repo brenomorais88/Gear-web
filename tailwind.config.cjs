@@ -1,4 +1,3 @@
-console.log("🔥 Tailwind config was loaded");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
