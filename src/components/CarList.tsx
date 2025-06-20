@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -29,27 +29,34 @@ export default function CarList() {
     }
 
     return (
-        <section className="p-8">
-            <h2 className="text-2xl font-semibold mb-4 text-primary">Carros em destaque</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section className="bg-gear-ice p-8">
+            <h2 className="text-2xl font-semibold mb-6 text-primary">Carros em destaque</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {anuncios.map((anuncio) => (
-                    <div key={anuncio.idAnuncio} className="bg-gear-ice border border-gear-gray rounded p-4 shadow">
+                    <div
+                        key={anuncio.idAnuncio}
+                        className="bg-white border border-gray-200 rounded-lg p-4 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                    >
                         {anuncio.veiculoFotos.length > 0 ? (
                             <Image
                                 src={anuncio.veiculoFotos[0].linkFoto}
                                 alt={`${anuncio.descricaoMarca} ${anuncio.descricaoModelo}`}
                                 width={300}
                                 height={200}
-                                className="object-cover w-full h-48 rounded mb-2"
+                                className="object-cover w-full h-48 rounded-md mb-4"
                             />
                         ) : (
-                            <div className="bg-gear-darkGray w-full h-48 flex items-center justify-center mb-2 text-gear-ice">
+                            <div className="bg-gear-darkGray w-full h-48 flex items-center justify-center mb-4 rounded-md text-gear-ice">
                                 Sem imagem
                             </div>
                         )}
-                        <h3 className="font-medium text-gear-black">{anuncio.descricaoMarca} {anuncio.descricaoModelo}</h3>
-                        <p className="text-gear-textGray">Ano: {anuncio.anoFabMod}</p>
-                        <p className="text-primary font-semibold">R${anuncio.preco.toLocaleString('pt-BR')}</p>
+                        <h3 className="font-medium text-lg text-gear-black mb-1">
+                            {anuncio.descricaoMarca} {anuncio.descricaoModelo}
+                        </h3>
+                        <p className="text-gear-textGray text-sm mb-2">Ano: {anuncio.anoFabMod}</p>
+                        <p className="text-primary font-semibold text-lg">
+                            R${anuncio.preco.toLocaleString('pt-BR')}
+                        </p>
                     </div>
                 ))}
             </div>
